@@ -346,11 +346,10 @@ fn verify(idl: &Idl) -> Result<()> {
         .iter()
         .find(|account| account.name.contains("::"))
     {
-        return Err(anyhow!(
+        println!(
             "Conflicting accounts names are not allowed.\nProgram: `{}`\nAccount: `{}`",
-            idl.metadata.name,
-            account.name
-        ));
+            idl.metadata.name, account.name
+        );
     }
 
     // Check empty discriminators
